@@ -15,7 +15,6 @@ additional_fields = data_obj.get('additional_fields', [])
 
 # Create a lookup table with field IDs as keys
 lookup_table = {}
-field_9_details = {}
 
 # Process each additional field
 for field in additional_fields:
@@ -29,20 +28,10 @@ for field in additional_fields:
         'title': field.get('title'),
         'type': field.get('type')
     }
-    
-    # Extract field 9 details for easy access
-    if field_id == 9 or field_key == '9':
-        field_9_details = {
-            'id': field.get('id'),
-            'value': field.get('value'),
-            'title': field.get('title'),
-            'type': field.get('type')
-        }
 
 # Return both the lookup table and field 9 details
 return {
     'lookup_table': lookup_table,
-    'field9': field_9_details,
     'all_fields': additional_fields,
     'total_fields': len(additional_fields)
 }
